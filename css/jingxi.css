@@ -167,6 +167,11 @@ body {
     header {
       text-align: center;
     }
+
+    .collapse_container label:before,
+    .collapse_container [type="checkbox"]:checked + label:before {
+      content: none;
+    }
   }
   
   /* navigation */
