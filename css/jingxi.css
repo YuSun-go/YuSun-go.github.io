@@ -574,6 +574,13 @@ body {
     .publication-img-col{
       width: 70%;
     }
+
+    .publication-title{
+      font-size: 1.0rem;
+    }
+    .publication-info-col{
+      font-size: 0.8rem;
+    }
   
     .caption {
       padding-top: 0.5em;
