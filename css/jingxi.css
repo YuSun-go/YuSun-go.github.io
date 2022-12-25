@@ -125,8 +125,9 @@ body {
   }
 
 
-  /* Right side main content */
-  
+  /******* Right side main content *******/
+
+  /* Header and Footer and Image */
   img {
     width: 100%;
   }
@@ -159,22 +160,7 @@ body {
     margin: 0;
   }
   
-  @media (max-width: 750px) {
-    .container-nav {
-      flex-direction: column;
-    }
-  
-    header {
-      text-align: center;
-    }
-
-    .collapse_container label:before,
-    .collapse_container [type="checkbox"]:checked + label:before {
-      content: none;
-    }
-  }
-  
-  /* navigation */
+  /* navigation (not used)*/
   
   nav ul {
     list-style: none;
@@ -206,16 +192,6 @@ body {
   
   .current-page:hover {
     color: #707070;
-  } */
-  
-  /* @media (max-width: 750px) {
-    nav ul {
-      flex-direction: column;
-    }
-  
-    nav li {
-      margin: 0.5em 0;
-    }
   } */
   
   /* Name card */
@@ -283,7 +259,7 @@ body {
     line-height: 1.1;
   }
 
-  /**** Text adjustment: https://www.webucator.com/article/how-to-set-text-spacing-and-placement-in-css/ ****/
+  /* Text alighnment and height adjustment: https://www.webucator.com/article/how-to-set-text-spacing-and-placement-in-css/ */
   /* .news ul li:not(:last-child),
   .misc ul li:not(:last-child),
   .teaching ul li:not(:last-child),
@@ -297,10 +273,10 @@ body {
   .news,
   .teaching,
   .talks{
-    text-align: justify;
+    text-align: justify; 
   }
 
-  /* News *//* show more or less in news */
+  /* Show more or less Button for "news" */
   .collapse_container{
     position: relative;
     height: auto;
@@ -518,22 +494,21 @@ body {
   /* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
   .lifestyle-container {
     position: relative;
-    padding-bottom: 135%; 
+    padding-bottom: 120%; 
     height: 0;
   }
   
   /* Image fix: https://www.w3schools.com/css/css3_object-fit.asp */
   .lifestyle-container img{
-    max-width:500px;
-    max-height: 300px;
-    /* max-height:100%; */
+    /* max-width:500px;
+    max-height: 300px; */
     border: none;
     /* this is needed for auto margin to work */
     display: block;
     margin-right: 3em auto;
     border-radius: 0.25rem;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-    object-fit: contain
+    object-fit: cover
   }
 
   .lifestyle-container iframe {
@@ -556,7 +531,7 @@ body {
 
   .caption_below_lifestyle{
     text-align: center;
-    padding-top: 0.0em;
+    padding-top: 2.5em;
   }
   
   .highlight {
@@ -564,14 +539,36 @@ body {
       /* font-family: monaco, monospace; */
   }
   
+  /* Smaller scaling (e.g. half window or mobile device) adjustment; All changes are inheurited from original layerout*/
   @media (max-width: 769px) {
+    #sidebar_{
+      background-color: aliceblue;
+      max-width: 100%;
+      border-radius: 1em;
+    }
+
     .research-columns {
       flex-direction: column;
       align-items: center;
     }
+
+    .news ul,
+    .misc ul,
+    .teaching ul,
+    .projects ul,
+    .talks ul, 
+    .talks ul > ul{
+      padding-left: 0em;
+      margin-left: 1em;
+    }
   
     .video-col {
       width: 90%;
+    }
+
+    .publications ul{
+      padding-left: 0;
+      margin-left: 0;
     }
   
     .caption {
@@ -582,12 +579,25 @@ body {
       padding-top: 2.5em;
     }
 
+    .caption_below_lifestyle{
+      padding-top: 2.0em;
+    }
+
     .sticky img {
-      /* display: block;
-      border-radius: 50%;
-      margin-left: auto;
-      margin-right: auto; */
       max-width: 30%;
+    }
+  
+    header {
+      text-align: center;
+    }
+
+    .collapse_container label{
+      left: 0;
+    }
+
+    .collapse_container label:before,
+    .collapse_container [type="checkbox"]:checked + label:before {
+      content: none;
     }
 
   }
