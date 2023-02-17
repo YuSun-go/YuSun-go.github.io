@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learning a Meta-Controller for Dynamic Grasping</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="styles.css" rel="stylesheet" >
+</head>
+<body>
+	<header class="page_header">
+		<!-- <nav>
+			<ul>
+				<li><a href="#about">About</a></li>
+				<li><a href="#research">Research</a></li>
+				<li><a href="#publications">Publications</a></li>
+				<li><a href="#team">Team</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav> -->
+		<h1>Learning a Meta-Controller for Dynamic Grasping</h1>
+		<h2 class="project-tagline">
+            <a href="https://ys-jia.github.io">Yinsen Jia<sup>*1</sup></a>, 
+            <a href="https://jxu.ai">Jingxi Xu<sup>*1</sup></a>,
+            <a href="https://www.seas.upenn.edu/~dineshj">Dinesh Jayaraman<sup>2</sup></a>,
+            <a href="https://www.cs.columbia.edu/~shurans">Shuran Song<sup>1</sup></a>
+            <br />
+            <span style="color: rgb(49, 49, 49)">
+              <sup>*</sup>equal
+              contribution&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>1</sup>
+              Columbia University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>University of
+              Pennsylvania</span>
+            <br />
+            <!-- <span style="font-style: italic">Conference</span> -->
+        </h2>
+        <a href="#" class="btn">arXiv (coming soon)</a>
+        <a href="#" class="btn">Code / GitHub (coming soon)</a>
+        <a href="files/poster.pdf" class="btn">Poster</a>
+	</header>
+
+	<main>
+		<section id="abstract">
+			<h2>Abstract</h2>
+			<p>
+                <img class="teaser-img" src="Assets/teaser.png" alt="" />
+                Grasping moving objects is a challenging task that combines multiple submodules such as object pose predictor, 
+                arm motion planner, etc. Each submodule operates under its own set of meta-parameters. For example, 
+                how far the pose predictor should look into the future (i.e., <span style="color: #ff0000; font-style: italic;">look-ahead time</span>) 
+                and the maximum amount of time the motion planner can spend planning a motion (i.e., <span style="color: blue; font-style: italic;">time budget</span>). 
+                Many previous works assign fixed values to these parameters either heuristically or through grid search; 
+                however, at different moments <i>within</i> a single episode of dynamic grasping, 
+                the optimal values should vary depending on the current scene. 
+                In this work, we learn a meta-controller through reinforcement learning to control the look-ahead time and time budget dynamically. 
+                Our extensive experiments show that the meta-controller improves the grasping success rate (up to 12% in the most cluttered environment) 
+                and reduces grasping time, compared to the strongest baseline. 
+                Our meta-controller learns to reason about the reachable workspace and maintain the predicted pose within the reachable region. 
+                In addition, it assigns a small but sufficient time budget for the motion planner. 
+                Our method can handle different target objects, trajectories, and obstacles. 
+                Despite being trained only with 3-6 randomly generated cuboidal obstacles, 
+                our meta-controller generalizes well to 7-9 obstacles and more realistic out-of-domain household setups with unseen obstacle shapes.
+            </p>
+        <hr/>
+		</section>
+
+		<section id="Presentation Video">
+			<h2>Video</h2>
+			<p>Detail the research objectives, methodology, and expected outcomes here.</p>
+        <hr/>
+        </section>
+
+		<section id="experiments">
+            <h2>Experiments</h2>
+            <p>
+                We evaluate our meta-controller in a comprehensive range
+                of environments with different obstacles, trajectories, and
+                targets. Our meta-controller is trained in a general setup with
+                randomly generated cuboidal obstacles. We show that our
+                meta-controller, despite only being trained with 3-6 obstacles,
+                can successfully generalize to 7-9 obstacles. Note that with
+                such obstacles, the environment becomes extremely cluttered,
+                as shown in the figure below. We also show that our meta-controller,
+                trained in such a general setup, can work directly in specific
+                environments with unseen obstacle shapes that mimic ware-
+                house, household, and retailer scenarios.
+            </p>
+            <img src="Assets/task_setup.png" alt="" style="width: 100%;"/>
+            
+            <h3>Demos</h3>
+            <div class="caption">3~6 Random Blocks</div>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_rb_28.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_rb_51.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">7~9 Random Blocks</div>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_mrb_16.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/MC_mrb_74.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">Household Setup</div>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/household_38.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/household_90.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+            </div>
+
+            <div class="caption">Cluttered Household Setup</div>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/clutterred_16.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <video
+                    class="demo-video"
+                    src="Assets/clutterred_88.mp4"
+                    autoplay muted loop
+                    ></video>
+                </div>
+            </div>
+			
+            <h3>Analysis</h3>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <div style="text-align: center;">Meta-controller</div>
+                    <video
+                    class="demo-video"
+                    src="Assets/Analysis_easy_mc.mp4"
+                    controls
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <div>Grid-search</div>
+                    <video
+                    class="demo-video"
+                    src="Assets/Analysis_easy_gs.mp4"
+                    controls
+                    ></video>
+                </div>
+            </div>
+            <div class="demo-columns">
+                <div class="video-col">
+                    <div>Meta-controller</div>
+                    <video
+                    class="demo-video"
+                    src="Assets/Analysis_hard_mc.mp4"
+                    controls
+                    ></video>
+                </div>
+                <div class="video-col">
+                    <div>Grid-search</div>
+                    <video
+                    class="demo-video"
+                    src="Assets/Analysis_hard_gs.mp4"
+                    controls
+                    ></video>
+                </div>
+            </div>
+		</section>
+
+		<section id="team">
+			<h2>Team</h2>
+			<p>Introduce your research team members and their roles.</p>
+		</section>
+
+		<section id="contact">
+			<h2>Contact</h2>
+			<p>Include a contact form or email address for inquiries about your research project.</p>
+		</section>
+	</main>
+
+	<footer>
+		<p>
+            If you have any questions, please feel free to contact 
+            <a href="https://ys-jia.github.io">Yinsen Jia</a> or 
+            <a href="https://jxu.ai">Jingxi Xu</a>. 
+            <br>
+            &copy; Learning a Meta-Controller for Dynamic Grasping
+        </p>
+	</footer>
+</body>
+</html>
