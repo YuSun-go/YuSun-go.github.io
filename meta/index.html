@@ -33,9 +33,9 @@
             <br />
             <!-- <span style="font-style: italic">Conference</span> -->
         </h2>
-        <a href="#" class="btn">arXiv (coming soon)</a>
+        <a href="https://arxiv.org/abs/2302.08463" class="btn">arXiv</a>
         <a href="#" class="btn">Code / GitHub (coming soon)</a>
-        <a href="files/poster.pdf" class="btn">Poster</a>
+        <!-- <a href="files/poster.pdf" class="btn">Poster</a> -->
 	</header>
 
 	<main>
@@ -62,14 +62,75 @@
         <hr/>
 		</section>
 
-		<section id="Presentation Video">
-			<h2>Video</h2>
-			<p>Detail the research objectives, methodology, and expected outcomes here.</p>
+        <section id="team">
+			<h2>Team</h2><br>
+				<div class="team-row">
+					<div class="team-item">
+                        <a href="https://yjia.net" target="_blank">
+                            <span class="image-fit" style="margin-bottom: 0.5em;">
+                                <img src="Assets/team/Yinsen_Jia.png" alt="" style="border-radius: 50%;"/>
+                            </span>
+							Yinsen Jia<sup>*, 1</sup>
+						</a>
+					</div>
+
+                    <div class="team-item">
+                        <a href="https://jxu.ai" target="_blank">
+                            <span class="image-fit" style="margin-bottom: 0.5em;">
+                                <img src="Assets/team/Jingxi_Xu.png" alt="" style="border-radius: 50%;"/>
+                            </span>
+							Jingxi Xu<sup>*, 1</sup>
+						</a>
+					</div>
+
+                    <div class="team-item">
+                        <a href="https://www.seas.upenn.edu/~dineshj/" target="_blank">
+                            <span class="image-fit" style="margin-bottom: 0.5em;">
+                                <img src="Assets/team/Dinesh_Jayaraman.jpg" alt="" style="border-radius: 100%;"/>
+                            </span>
+							Dinesh Jayaraman<sup>2</sup>
+						</a>
+					</div>
+
+                    <div class="team-item">
+                        <a href="https://www.cs.columbia.edu/~shurans/" target="_blank">
+                            <span class="image-fit" style="margin-bottom: 0.5em;">
+                                <img src="Assets/team/Shuran_Song.jpg" alt="" style="border-radius: 50%;"/>
+                            </span>
+							Shuran Song<sup>1</sup>
+						</a>
+					</div>
+
+                    <div style="width: 40%; text-align: center; padding-top: 1rem;">
+                        <p>
+                            <sup>*</sup> Equal Contribution <br>
+                            <sup>1</sup> Columbia University <br>
+                            <sup>2</sup> University of Pennsylvania <br>
+                        </p>
+					</div>
+				</div>
+                <br>
+		</section>
+
+		<section id="Supplementary Video">
+			<h2>Supplementary Video</h2>
+			<!-- <p>Detail the research objectives, methodology, and expected outcomes here.</p> -->
+            <div class="presentation-video">
+                <iframe
+                width="1008"
+                height="567"
+                src="https://www.youtube.com/embed/CwHq77wFQqI"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+            </div>
         <hr/>
         </section>
 
-		<section id="experiments">
-            <h2>Experiments</h2>
+		<section id="Results">
+            <h2>Results</h2>
             <p>
                 We evaluate our meta-controller in a comprehensive range
                 of environments with different obstacles, trajectories, and
@@ -81,12 +142,23 @@
                 as shown in the figure below. We also show that our meta-controller,
                 trained in such a general setup, can work directly in specific
                 environments with unseen obstacle shapes that mimic ware-
-                house, household, and retailer scenarios.
+                house, household, and retailer scenarios. Below are some dynamic grasping demos that utilize our meta-controller.
             </p>
-            <img src="Assets/task_setup.png" alt="" style="width: 100%;"/>
+            <img src="Assets/task_setup.png" alt="" style="width: 100%; padding-bottom: 2rem;"/>
             
-            <h3>Demos</h3>
             <div class="caption">3~6 Random Blocks</div>
+            <p class="nopadding_p">
+                In this setup, the obstacle poses are
+                randomly sampled from a cuboidal volume that incorporates
+                both the trajectory and robot arm. These random blocks are
+                guaranteed not to block the conveyor trajectory, by setting up
+                a protected area with a height of 30cm and a width of 20cm
+                surrounding the trajectory. The number of obstacles is between
+                3 and 6. The x, y, and z dimensions of these rectangular
+                obstacles are all uniformly sampled from [5cm, 15cm]. In
+                this setup, the conveyor trajectory is sampled from all 4
+                trajectories.
+            </p>
             <div class="demo-columns">
                 <div class="video-col">
                     <video
@@ -105,6 +177,11 @@
             </div>
 
             <div class="caption">7~9 Random Blocks</div>
+            <p class="nopadding_p">
+                This setup is the same as 3-
+                6 Random Blocks except that we increase the number of
+                obstacles to 7-9. This is used only for evaluation.
+            </p>
             <div class="demo-columns">
                 <div class="video-col">
                     <video
@@ -123,6 +200,22 @@
             </div>
 
             <div class="caption">Household Setup</div>
+            <p class="nopadding_p">
+                In this setup, there are three shelves
+                (one top shelf and two side shelves) between the robot arm
+                and the object trajectory. For each episode, the conveyor
+                motion is sampled from linear, sinusoidal, and rectangular
+                trajectories, without circular trajectories. The top shelf height
+                is randomized between 40 - 60cm, and the side shelf locations
+                are randomized so that an empty middle space of length 45
+                - 85cm is available. It is designed to have a reachable area
+                in the middle of the trajectory while blocked at the start and
+                end. Even though this setup is not as highly cluttered as 7-
+                9 Random Blocks, it can evaluate the generalization ability
+                of our meta-controller to completely new obstacle shapes
+                and locations not seen during training. This is used only for
+                evaluation.
+            </p>
             <div class="demo-columns">
                 <div class="video-col">
                     <video
@@ -141,6 +234,17 @@
             </div>
 
             <div class="caption">Cluttered Household Setup</div>
+            <p class="nopadding_p">
+                In this setup, the conveyor
+                moves following a circular trajectory. There are 5 cylinder
+                obstacles surrounding the trajectory and a top circular shelf
+                obstacle covering the trajectory. The top circular shelf consists
+                of 15 identical convex trapezoidal parts. Positions of these
+                cylinder obstacles are randomly sampled. This is a harder and
+                more cluttered setup compared to the Household Setup. It is
+                motivated by operating in extremely cluttered household and
+                warehouse environments. This is used only for evaluation.
+            </p>
             <div class="demo-columns">
                 <div class="video-col">
                     <video
@@ -158,10 +262,21 @@
                 </div>
             </div>
 			
-            <h3>Analysis</h3>
+            <h3>Demonstration</h3>
+            <p class="nopadding_p">
+                We observe three
+                things that our meta-controller learns. (1) It can reason about
+                the reachable workspace and through dynamically controlling
+                the look-ahead time and time budget, it maintains the predicted
+                pose and the planned motion within the most reachable region.
+                (2) It learns to generate a small look-ahead time when the
+                predicted trajectory is not accurate. (3) It learns to produce a
+                small but sufficient time budget for motion planning.
+            </p>
+            <div style="font-size: 1.2rem; text-align: center; color: green;">Household Setup</div>
             <div class="demo-columns">
                 <div class="video-col">
-                    <div style="text-align: center;">Meta-controller</div>
+                    <div class="smallcaption">Meta-controller</div>
                     <video
                     class="demo-video"
                     src="Assets/Analysis_easy_mc.mp4"
@@ -169,7 +284,7 @@
                     ></video>
                 </div>
                 <div class="video-col">
-                    <div>Grid-search</div>
+                    <div class="smallcaption">Grid-search</div>
                     <video
                     class="demo-video"
                     src="Assets/Analysis_easy_gs.mp4"
@@ -177,9 +292,12 @@
                     ></video>
                 </div>
             </div>
+            
+            <div> <hr width: auto style="border-top: dashed 2px; color: #02020262;"></div>
+            <div style="font-size: 1.2rem; text-align: center; color: green;">Clutterred Household Setup</div>
             <div class="demo-columns">
                 <div class="video-col">
-                    <div>Meta-controller</div>
+                    <div class="smallcaption">Meta-controller</div>
                     <video
                     class="demo-video"
                     src="Assets/Analysis_hard_mc.mp4"
@@ -187,7 +305,7 @@
                     ></video>
                 </div>
                 <div class="video-col">
-                    <div>Grid-search</div>
+                    <div class="smallcaption">Grid-search</div>
                     <video
                     class="demo-video"
                     src="Assets/Analysis_hard_gs.mp4"
@@ -195,17 +313,22 @@
                     ></video>
                 </div>
             </div>
+            <hr />
 		</section>
 
-		<section id="team">
-			<h2>Team</h2>
-			<p>Introduce your research team members and their roles.</p>
-		</section>
-
-		<section id="contact">
-			<h2>Contact</h2>
-			<p>Include a contact form or email address for inquiries about your research project.</p>
-		</section>
+        <section id="bibtex">
+            <h2>BibTex</h2>
+            <div>
+                <pre><code>
+        @article{yjia2023MetaController,
+            title = {Learning a Meta-Controller for Dynamic Grasping},
+            author = {Jia, Yinsen and Xu, Jingxi and Jayaraman, Dinesh and Song, Shuran},
+            publisher = {arXiv},
+            year = {2023},
+        }
+                </code></pre>
+            </div>
+        </section>
 	</main>
 
 	<footer>

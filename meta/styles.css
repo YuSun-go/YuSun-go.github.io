@@ -107,6 +107,45 @@ section {
     margin-left: 1rem;
 }
 
+/* Team */
+.team-row{
+    display:flex; 
+    /* padding-bottom: 20px; */
+}
+
+.team-item{
+    text-align: center;
+    width:150px; 
+    padding: 0px 10px;
+}
+
+.image-fit {
+	display: block;
+	margin: 0 0 2em 0;
+	width: 100%;
+	-moz-transition: opacity 0.1s ease-in-out;
+	-webkit-transition: opacity 0.1s ease-in-out;
+	-ms-transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-in-out;
+}
+
+.image-fit:hover {
+	opacity: 0.8;
+}
+
+.image-fit img {
+	width: 100%;
+}
+
+/* Video */
+.presentation-video{
+    margin: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Demos */
 .demo-video {
     width: 100%;
     display: block;
@@ -123,18 +162,47 @@ section {
 
 .video-col {
     width: 49%;
-    /* border-style: solid;
-    border-color: #000000;
-    border-width: 1.5px; */
 }
 
 .caption {
     text-align: center;
-    padding-bottom: 0.5em;
     color: #159957;
     font-weight: bold;
     width: 100%;
     font-size: 1.5rem;
+}
+
+.smallcaption{
+    text-align: center;
+}
+
+.nopadding_p{
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+}
+
+/* BibTex */
+code {
+	background: #f7f7f7;
+	border-radius: 0.35em;
+	border: solid 1px #efefef;
+	font-family: "Courier New", monospace;
+	margin: 0px;
+	padding: 0px;
+}
+
+pre {
+	-webkit-overflow-scrolling: touch;
+	font-family: "Courier New", monospace;
+	font-size: 1em;
+	margin: 0 0 0 0;
+}
+
+pre code {
+	display: block;
+	line-height: 1.25em;
+	overflow-x: auto;
+    margin-left: 0;
 }
 
 footer {
