@@ -297,6 +297,46 @@ nav a:focus {
   border-radius: 5px !important;
 }
 
+/* Lifestyle */
+.lifestyle-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lifestyle-col {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
+.lifestyle-container {
+  position: relative;
+  padding-bottom: 120%; 
+  height: 0;
+}
+
+/* Image fix: https://www.w3schools.com/css/css3_object-fit.asp */
+.lifestyle-img{
+  /* max-width:500px;
+  max-height: 300px; */
+  border: none;
+  /* this is needed for auto margin to work */
+  display: block;
+  margin-right: 3em auto;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  object-fit: cover
+}
+
+.lifestyle-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .caption {
   text-align: center;
   padding-bottom: 0.5em;
