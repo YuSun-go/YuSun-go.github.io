@@ -243,7 +243,12 @@ nav a:focus {
 }
 
 .publication-title {
-  color: #212c8f;
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.publication-author {
+  color: #272727;
   font-size: 1.2rem;
 }
 
