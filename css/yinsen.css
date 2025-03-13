@@ -215,6 +215,77 @@ nav a:focus {
   padding-left: 1em;
 }
 
+
+/* Show more or less Button for "news" */
+.collapse_container{
+  position: relative;
+  height: auto;
+  list-style-type: none;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px; 
+}
+
+[type="checkbox"] ~ ul {
+  display: none;
+}
+
+[type="checkbox"]:checked ~ ul {
+  display: block;
+}
+
+[type="checkbox"]:checked + label {
+  top: 100%;
+}
+
+[type="checkbox"]:checked + label:before {
+  content: 'Less';
+}
+
+[type="checkbox"]:checked + label:after {
+  content: '⇡●'; 
+}
+
+label {
+  background: #f19b06;
+  display: block;
+  border-radius: 0.5em;
+  width: 15%;
+  height: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: -10;
+  left: 2em;
+}
+
+label:before,
+label:after {
+  position: absolute;
+}
+
+label:before {
+  content: 'More';
+  left: 10px;
+}
+
+label:after {
+  content: '⇣●';
+  right: 10px;
+  animation: sudo .85s linear infinite alternate;
+}
+
+@keyframes sudo { 
+  from { 
+    transform: translateY(-2px); 
+  }
+  to { 
+    transform: translateY(2px); 
+  }   
+}
+
+
 /* Publications */
 .publications ul {
   padding-left: 0.5em;
