@@ -95,7 +95,7 @@ footer {
 
 .footer-content {
   font-size: 0.75rem;
-  margin: 0;
+  margin: 20px;
 }
 
 @media (max-width: 750px) {
