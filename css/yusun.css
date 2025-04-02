@@ -1,0 +1,440 @@
+/* font 
+font-family: 'Lora', serif;
+font-family: 'Ubuntu', sans-serif
+*/
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+@media (min-width: 1500px) {
+  html {
+    zoom: 110%;
+  }
+}
+
+/* ===========================
+Typography
+=========================== */
+
+.name {
+  font-size: 2.5rem;
+}
+
+.email {
+  color: #022169;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #022169;
+}
+
+.site-title h1 {
+  /* color: #143774; */
+  margin: 0;
+}
+
+.subtitle {
+  font-weight: 700;
+  color: #1792d2;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #0033a0;
+  padding: 0.25em 0;
+}
+
+a:hover,
+a:focus {
+  color: #6cace4;
+}
+
+@media (max-width: 530px) {
+  .mobhide {
+    display: none;
+  }
+}
+
+/* ===========================
+Layout
+=========================== */
+
+img {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 0.5em 0;
+}
+
+footer {
+  background: #f8f8f8;
+  color: #707070;
+  text-align: center;
+  padding: 0.25em 0;
+}
+
+.footer-content {
+  font-size: 0.75rem;
+  margin: 15px;
+}
+
+@media (max-width: 750px) {
+  .container-nav {
+    flex-direction: column;
+  }
+
+  header {
+    text-align: center;
+  }
+}
+
+/* navigation */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+nav li {
+  margin-left: 2em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #707070;
+  font-weight: 700;
+  padding: 0.25em 0;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #6cace4;
+}
+
+/* current page does not make sense right now because only have one page */
+/* .current-page {
+  border-bottom: 1px solid #707070;
+}
+
+.current-page:hover {
+  color: #707070;
+} */
+
+@media (max-width: 750px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: 0.5em 0;
+  }
+}
+
+/* Name card */
+
+.namecard {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+.profile-img-col {
+  width: 40%;
+}
+
+.profile-img {
+  width: 80%;
+  /* this is needed for auto margin to work */
+  display: block;
+  margin: 1em auto;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.affiliations-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  text-align: center;
+}
+
+.affiliations-col p {
+  margin: 0 0 1em 0;
+}
+
+.affiliations-col h1 {
+  margin-bottom: 0;
+}
+
+@media (max-width: 875px) {
+  .namecard {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-img-col {
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .affiliations-col {
+    width: 100%;
+  }
+}
+
+/* News */
+.news ul,
+.misc ul,
+.teaching ul,
+.projects ul,
+.mentoring ul,
+.talks ul {
+  padding-left: 1em;
+}
+
+
+/* Show more or less Button for "news" */
+.collapse_container{
+  position: relative;
+  height: auto;
+  list-style-type: none;
+}
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px; 
+}
+
+[type="checkbox"] ~ ul {
+  display: none;
+}
+
+[type="checkbox"]:checked ~ ul {
+  display: block;
+}
+
+[type="checkbox"]:checked + label {
+  top: 100%;
+}
+
+[type="checkbox"]:checked + label:before {
+  content: 'Less';
+}
+
+[type="checkbox"]:checked + label:after {
+  content: '⇡●'; 
+}
+
+label {
+  background: #f19b06;
+  display: block;
+  border-radius: 0.5em;
+  width: 15%;
+  height: 1.5em;
+  cursor: pointer;
+  position: absolute;
+  top: -10;
+  left: 2em;
+}
+
+label:before,
+label:after {
+  position: absolute;
+}
+
+label:before {
+  content: 'More';
+  left: 10px;
+}
+
+label:after {
+  content: '⇣●';
+  right: 10px;
+  animation: sudo .85s linear infinite alternate;
+}
+
+@keyframes sudo { 
+  from { 
+    transform: translateY(-2px); 
+  }
+  to { 
+    transform: translateY(2px); 
+  }   
+}
+
+
+/* Publications */
+.publications ul {
+  padding-left: 0.5em;
+  list-style: none;
+}
+
+.publication-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5em;
+  padding: 0.5em;
+  /* margin-bottom: 1em; */
+}
+
+.publication-img-col {
+  width: 13%;
+  padding-right: 1em;
+}
+
+.publication-info-col {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.publication-title {
+  color: #000000;
+  font-size: 1.2rem;
+}
+
+.publication-author {
+  color: #272727;
+  font-size: 1.2rem;
+}
+
+.publication-conference {
+  font-style: italic;
+}
+
+.publication-img {
+  width: 100%;
+  border: none;
+  /* this is needed for auto margin to work */
+  display: block;
+  margin-right: 3em;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.publication-award {
+  color: red;
+}
+
+.year {
+  font-size: 1.5rem;
+}
+
+/* Research */
+.research-columns {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.video-col {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px !important;
+}
+
+/* Lifestyle */
+.lifestyle-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lifestyle-col {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* fix youtube embed black bar: https://stackoverflow.com/questions/43954836/disabling-blackbars-on-youtube-embed-iframe */
+.lifestyle-container {
+  position: relative;
+  padding-bottom: 120%; 
+  height: 0;
+}
+
+/* Image fix: https://www.w3schools.com/css/css3_object-fit.asp */
+.lifestyle-img{
+  /* max-width:500px;
+  max-height: 300px; */
+  border: none;
+  /* this is needed for auto margin to work */
+  display: block;
+  margin-right: 3em auto;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  object-fit: cover
+}
+
+.lifestyle-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.caption {
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+
+.highlight {
+  background: #ddf8ff;
+  /* font-family: monaco, monospace; */
+}
+
+@media (max-width: 750px) {
+  .research-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-col {
+    width: 90%;
+  }
+
+  .caption {
+    padding-top: 0.5em;
+  }
+}
